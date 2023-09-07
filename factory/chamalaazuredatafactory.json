@@ -1,0 +1,9 @@
+{
+	"name": "chamalaazuredatafactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "dd531062-b5ef-4223-a4de-80a0442eab3f",
+		"tenantId": "6e0dba83-7e96-4d24-9380-2ced77307fe7"
+	}
+}
