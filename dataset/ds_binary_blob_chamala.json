@@ -1,0 +1,17 @@
+{
+	"name": "ds_binary_blob_chamala",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_chamalabloblinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "containerkiran"
+			}
+		}
+	}
+}

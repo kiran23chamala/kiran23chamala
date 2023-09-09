@@ -1,0 +1,56 @@
+{
+	"name": "DS_chamalablobdataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_chamalabloblinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "employee.csv",
+				"container": "containerkiran"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "employeeNumber",
+				"type": "String"
+			},
+			{
+				"name": "lastName",
+				"type": "String"
+			},
+			{
+				"name": "firstName",
+				"type": "String"
+			},
+			{
+				"name": "extension",
+				"type": "String"
+			},
+			{
+				"name": "email",
+				"type": "String"
+			},
+			{
+				"name": "officeCode",
+				"type": "String"
+			},
+			{
+				"name": "reportsTo",
+				"type": "String"
+			},
+			{
+				"name": "jobTitle",
+				"type": "String"
+			}
+		]
+	}
+}

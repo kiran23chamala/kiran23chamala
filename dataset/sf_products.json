@@ -1,0 +1,74 @@
+{
+	"name": "sf_products",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sf_classimodels",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Classicmodels"
+		},
+		"annotations": [],
+		"type": "SnowflakeTable",
+		"schema": [
+			{
+				"name": "PRODUCTCODE",
+				"type": "VARCHAR",
+				"precision": 15,
+				"scale": 0
+			},
+			{
+				"name": "PRODUCTNAME",
+				"type": "VARCHAR",
+				"precision": 70,
+				"scale": 0
+			},
+			{
+				"name": "PRODUCTLINE",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "PRODUCTSCALE",
+				"type": "VARCHAR",
+				"precision": 10,
+				"scale": 0
+			},
+			{
+				"name": "PRODUCTVENDOR",
+				"type": "VARCHAR",
+				"precision": 50,
+				"scale": 0
+			},
+			{
+				"name": "PRODUCTDESCRIPTION",
+				"type": "VARCHAR",
+				"precision": 232,
+				"scale": 0
+			},
+			{
+				"name": "QUANTITYINSTOCK",
+				"type": "NUMBER",
+				"precision": 38,
+				"scale": 0
+			},
+			{
+				"name": "BUYPRICE",
+				"type": "NUMBER",
+				"precision": 10,
+				"scale": 2
+			},
+			{
+				"name": "MSRP",
+				"type": "NUMBER",
+				"precision": 10,
+				"scale": 2
+			}
+		],
+		"typeProperties": {
+			"schema": "ORDERS",
+			"table": "PRODUCTS"
+		}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"name": "DS_chamaladatasetdatalake",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_chamaladatelakelinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "kumarchamala"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": []
+	}
+}
