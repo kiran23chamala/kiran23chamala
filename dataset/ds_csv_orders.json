@@ -1,0 +1,55 @@
+{
+	"name": "ds_csv_orders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_chamaladatelakelinkedservice",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "Classicmodels"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "order.csv",
+				"fileSystem": "kumarchamala"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "orderNumber",
+				"type": "String"
+			},
+			{
+				"name": "orderDate",
+				"type": "String"
+			},
+			{
+				"name": "requiredDate",
+				"type": "String"
+			},
+			{
+				"name": "shippedDate",
+				"type": "String"
+			},
+			{
+				"name": "status",
+				"type": "String"
+			},
+			{
+				"name": "comments",
+				"type": "String"
+			},
+			{
+				"name": "customerNumber",
+				"type": "String"
+			}
+		]
+	}
+}

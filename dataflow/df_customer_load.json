@@ -1,0 +1,89 @@
+{
+	"name": "df_customer_load",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "ds_csv_customer",
+						"type": "DatasetReference"
+					},
+					"name": "srcCustomers"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_csv_ordersoutput_customer",
+						"type": "DatasetReference"
+					},
+					"name": "sinkcustomers"
+				}
+			],
+			"transformations": [
+				{
+					"name": "selectcustomer"
+				},
+				{
+					"name": "dccontactname"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          customerNumber as integer,",
+				"          customerName as string,",
+				"          contactLastName as string,",
+				"          contactFirstName as string,",
+				"          phone as string,",
+				"          addressLine1 as string,",
+				"          addressLine2 as string,",
+				"          city as string,",
+				"          state as string,",
+				"          postalCode as string,",
+				"          country as string,",
+				"          salesRepEmployeeNumber as integer,",
+				"          creditLimit as integer",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> srcCustomers",
+				"srcCustomers select(mapColumn(",
+				"          customerNumber,",
+				"          customerName,",
+				"          contactLastName,",
+				"          contactFirstName,",
+				"          phone,",
+				"          city,",
+				"          state,",
+				"          postalCode,",
+				"          country,",
+				"          salesRepEmployeeNumber,",
+				"          creditLimit",
+				"     ),",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true) ~> selectcustomer",
+				"selectcustomer derive(contactname = concatWS('', contactFirstName, contactLastName)) ~> dccontactname",
+				"dccontactname sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          customerNumber,",
+				"          customerName,",
+				"          phone,",
+				"          city,",
+				"          state,",
+				"          postalCode,",
+				"          country,",
+				"          salesRepEmployeeNumber,",
+				"          creditLimit,",
+				"          contactname",
+				"     )) ~> sinkcustomers"
+			]
+		}
+	}
+}
